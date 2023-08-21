@@ -7,7 +7,6 @@ import {
   Param,
   Delete,
   Inject,
-  UseInterceptors,
   RequestTimeoutException,
 } from '@nestjs/common';
 import { CoffeesService } from './coffees.service';
@@ -15,9 +14,7 @@ import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 import { CoffeesDataSource } from './types/types';
 import { COFFEES_DATA_SOURCE } from './constants/constants';
-import { CircuitBreakerInterceptor } from 'src/common/interceptors/circuit-breaker.interceptor';
 
-@UseInterceptors(CircuitBreakerInterceptor)
 @Controller('coffees')
 export class CoffeesController {
   constructor(
